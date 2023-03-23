@@ -1,0 +1,86 @@
+import ImgLogo from './images/logo.png';
+import ImgPlayCircle from './images/play-circle.png';
+import ImgBack1 from './images/back1.png';
+import ImgBack2 from './images/back2.png';
+import ImgGraph1 from './images/graph1.png';
+import ImgGraph2 from './images/graph2.png';
+import ImgGraph3 from './images/graph3.png';
+import ImgGraph4 from './images/graph4.png';
+import ImgBorder from './images/border.png';
+import ImgEllipse1 from './images/ellipse1.png';
+
+import ImgComp1 from './images/companies/company1.png';
+import ImgComp2 from './images/companies/company2.png';
+import ImgComp3 from './images/companies/company3.png';
+import ImgComp4 from './images/companies/company4.png';
+import ImgComp5 from './images/companies/company5.png';
+import ImgComp6 from './images/companies/company6.png';
+
+import ImgAnsweringMan from './images/answer-man/answering-man.png';
+import ImgSub1 from './images/answer-man/subimg1.png';
+import ImgSub2 from './images/answer-man/subimg2.png';
+
+import ImgWhyCS1 from './images/whycs/whycs1.png';
+import ImgWhyCS2 from './images/whycs/whycs2.png';
+import ImgWhyCS3 from './images/whycs/whycs3.png';
+
+import ImgOurtool1 from './images/tool/tool1.png';
+import ImgOurtool2 from './images/tool/tool2.png';
+import ImgOurtool3 from './images/tool/tool3.png';
+import ImgOurtool4 from './images/tool/tool4.png';
+
+import ImgSupport1 from './images/support/support1.png';
+import ImgSupport2 from './images/support/support2.png';
+import ImgSupport3 from './images/support/support3.png';
+
+export {
+  ImgLogo,
+  ImgPlayCircle,
+  ImgBack1,
+  ImgBack2,
+  ImgGraph1,
+  ImgGraph2,
+  ImgGraph3,
+  ImgGraph4,
+  ImgBorder,
+  ImgEllipse1,
+}
+
+// Companies
+export {
+  ImgComp1,
+  ImgComp2,
+  ImgComp3,
+  ImgComp4,
+  ImgComp5,
+  ImgComp6,
+}
+
+// Answering man
+export {
+  ImgAnsweringMan,
+  ImgSub1,
+  ImgSub2
+}
+
+// Why Choose Us
+export {
+  ImgWhyCS1,
+  ImgWhyCS2,
+  ImgWhyCS3,
+}
+
+// Our tool
+export {
+  ImgOurtool1,
+  ImgOurtool2,
+  ImgOurtool3,
+  ImgOurtool4,
+}
+
+// Supports
+export {
+  ImgSupport1,
+  ImgSupport2,
+  ImgSupport3,
+}
