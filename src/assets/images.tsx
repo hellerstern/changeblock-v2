@@ -8,6 +8,7 @@ import ImgGraph3 from './images/graph3.png';
 import ImgGraph4 from './images/graph4.png';
 import ImgBorder from './images/border.png';
 import ImgEllipse1 from './images/ellipse1.png';
+import ImgFeatureBack from './images/features-back.png';
 
 import ImgComp1 from './images/companies/company1.png';
 import ImgComp2 from './images/companies/company2.png';
@@ -33,6 +34,19 @@ import ImgSupport1 from './images/support/support1.png';
 import ImgSupport2 from './images/support/support2.png';
 import ImgSupport3 from './images/support/support3.png';
 
+import ImgSocial1 from './images/social/social1.png'
+import ImgSocial2 from './images/social/social2.png'
+import ImgSocial3 from './images/social/social3.png'
+
+import ImgAna1 from './images/Analysis/ana1.png';
+import ImgAnaCheck1 from './images/Analysis/ana-check1.png';
+import ImgAna2 from './images/Analysis/ana2.png';
+import ImgAnaCheck2 from './images/Analysis/ana-check2.png';
+import ImgAna3 from './images/Analysis/ana3.png';
+import ImgAnaCheck3 from './images/Analysis/ana-check3.png';
+import ImgAna4 from './images/Analysis/ana4.png';
+import ImgAnaCheck4 from './images/Analysis/ana-check4.png';
+
 export {
   ImgLogo,
   ImgPlayCircle,
@@ -44,6 +58,7 @@ export {
   ImgGraph4,
   ImgBorder,
   ImgEllipse1,
+  ImgFeatureBack,
 }
 
 // Companies
@@ -83,4 +98,21 @@ export {
   ImgSupport1,
   ImgSupport2,
   ImgSupport3,
+}
+
+export {
+  ImgSocial1,
+  ImgSocial2,
+  ImgSocial3,
+}
+
+export {
+  ImgAna1,
+  ImgAna2,
+  ImgAna3,
+  ImgAna4,
+  ImgAnaCheck1,
+  ImgAnaCheck2,
+  ImgAnaCheck3,
+  ImgAnaCheck4,
 }

@@ -20,6 +20,8 @@ import AnsweringMan from "../../components/answeringMan/AnsweringMan";
 import WhyCU from "../../components/whycu/WhyCU";
 import Ourtool from "../../components/ourtool/Ourtool";
 import Support from "../../components/support/Support";
+import Informed from "../../components/informed/Informed";
+import Footer from "../../Layout/Footer/Footer";
 
 const Landing = () => {
   return (
@@ -31,7 +33,7 @@ const Landing = () => {
         <img className="graph img-2" src={ImgGraph2} />
         <img className="graph img-3" src={ImgGraph3} />
         <img className="graph img-4" src={ImgGraph4} />
-        <Header />
+        <Header themeFlag={0} />
         <Section1>
           <h1>Simplifying complex climate data</h1>
           <p>Discover the power of data driven insights with Changeblock’s InsightX and transform climate data into actionable, intelligent information.</p>
@@ -61,10 +63,12 @@ const Landing = () => {
         </Descp>
         <AnsweringMan></AnsweringMan>
       </Section3>
-
       <WhyCU />
       <Ourtool />
       <Support />
+
+      <Informed />
+      <Footer></Footer>
     </Wrapper>
   )
 }
@@ -93,7 +97,6 @@ const Wrapper = styled.div`
 `
 
 const Container = styled.div`
-  height: 100vh;
   margin: auto;
   max-width: ${p => p.theme.maxWidth};
 
@@ -138,7 +141,7 @@ const Container = styled.div`
 `
 const Section1 = styled.div`
   padding: 50px;
-  padding-top: 100px;
+  padding-top: 250px;
   h1 {
     font-weight: 600;
     font-size: 64px;
@@ -176,7 +179,7 @@ const Section1 = styled.div`
   }
   @media screen and (max-width: 750px) {
     padding: 20px;
-    padding-top: 100px;
+    padding-top: 250px;
   }
 `
 

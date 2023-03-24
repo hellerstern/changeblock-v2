@@ -28,12 +28,17 @@ const Wrapper = styled.div`
   margin: auto;
   max-width: ${p => p.theme.maxWidth};
   padding: 50px;
+  margin-bottom: 300px;
   @media screen and (max-width: 500px) {
     padding: 20px;
   }
   margin-top: 300px;
   @media screen and (max-width: 1085px) {
+    margin-bottom: 100px;
     text-align: center;
+  }
+  @media screen and (max-width: 768px) {
+    margin-bottom: 50px;
   }
   .title {
     color: ${p => p.theme.fontColor1};

@@ -12,7 +12,11 @@ interface inter_mobileMenu {
   flag: boolean
 }
 
-const Header = () => {
+interface inter_header {
+  themeFlag: number
+}
+
+const Header = (props: inter_header) => {
 
   const [mobMenu, setMobMenu] = useState(false);
 
@@ -36,7 +40,7 @@ const Header = () => {
   ]
 
   return (
-    <Wrapper>
+    <Wrapper themeFlag={props.themeFlag}>
       <Container>
         <Logo to={'/'}>
           <img src={ImgLogo} alt='logo' />
@@ -50,7 +54,7 @@ const Header = () => {
             ))
           }
           <SignUpLink to={PUBLIC_ROUTES.signup}>Sign Up</SignUpLink>
-          <StyledRiMenu2Line onClick={() => setMobMenu(!mobMenu)}></StyledRiMenu2Line>
+          <StyledRiMenu2Line onClick={() => setMobMenu(!mobMenu)} className='menu-icon'></StyledRiMenu2Line>
         </HeaderLinks>
 
         <MobileDiv flag={mobMenu}>
@@ -71,18 +75,28 @@ const Header = () => {
   )
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<inter_header>`
   width: 100%;
   max-width: ${p => p.theme.maxWidth};
   margin: auto;
   padding: 50px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  @media screen and (max-width: 768px) {
+    padding: 50px 20px;
+  }
   * {
-    color: ${p => p.theme.fontColor1};
+    color: ${p => p.themeFlag ? p.theme.fontColor3 : p.theme.fontColor1};
     font-family: 'Urbanist-Medium';
   }
 
   a {
     text-decoration: none;
+  }
+
+  .menu-icon {
+    fill: ${p => p.themeFlag ? p.theme.fontColor3 : p.theme.fontColor1};
   }
 `
 
