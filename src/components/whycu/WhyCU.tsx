@@ -25,7 +25,6 @@ const WhyCU = () => {
       content: 'Our easy to use dashboard is designed to provide a seamless experience and allow you access the tools you need in one place to make quick and efficient decisions that impact positively on your business.'
     },
   ]
-
   return (
     <Wrapper>
       <StyledP>

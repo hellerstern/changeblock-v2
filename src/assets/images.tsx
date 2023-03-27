@@ -9,6 +9,9 @@ import ImgGraph4 from './images/graph4.png';
 import ImgBorder from './images/border.png';
 import ImgEllipse1 from './images/ellipse1.png';
 import ImgFeatureBack from './images/features-back.png';
+import ImgFaqsBack from './images/faqs-back.png';
+import ImgLoginBack from './images/login-back.png';
+import ImgGoogle from './images/google.png';
 
 import ImgComp1 from './images/companies/company1.png';
 import ImgComp2 from './images/companies/company2.png';
@@ -47,6 +50,14 @@ import ImgAnaCheck3 from './images/Analysis/ana-check3.png';
 import ImgAna4 from './images/Analysis/ana4.png';
 import ImgAnaCheck4 from './images/Analysis/ana-check4.png';
 
+import ImgPricing1 from './images/pricing/pricing1.png';
+import ImgPricing2 from './images/pricing/pricing2.png';
+import ImgPricing3 from './images/pricing/pricing3.png';
+import ImgPricingCheck from './images/pricing/pricing-check.png';
+
+import ImgMail from './images/mail.png';
+import ImgPhone from './images/phone.png';
+
 export {
   ImgLogo,
   ImgPlayCircle,
@@ -59,6 +70,13 @@ export {
   ImgBorder,
   ImgEllipse1,
   ImgFeatureBack,
+  ImgFaqsBack,
+
+  ImgMail,
+  ImgPhone,
+
+  ImgLoginBack,
+  ImgGoogle,
 }
 
 // Companies
@@ -100,12 +118,15 @@ export {
   ImgSupport3,
 }
 
+// Social Icons
 export {
   ImgSocial1,
   ImgSocial2,
   ImgSocial3,
 }
 
+
+// Images for features pages
 export {
   ImgAna1,
   ImgAna2,
@@ -115,4 +136,12 @@ export {
   ImgAnaCheck2,
   ImgAnaCheck3,
   ImgAnaCheck4,
+}
+
+// Images for pricing pages
+export {
+  ImgPricing1,
+  ImgPricing2,
+  ImgPricing3,
+  ImgPricingCheck,
 }

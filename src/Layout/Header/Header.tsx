@@ -30,7 +30,7 @@ const Header = (props: inter_header) => {
       link: PUBLIC_ROUTES.pricing
     },
     {
-      txt: 'FAGs',
+      txt: 'FAQs',
       link: PUBLIC_ROUTES.faqs
     },
     {
@@ -132,6 +132,10 @@ const HeaderLink = styled(Link)`
   @media screen and (max-width: ${p => p.theme.headerMedia1}) {
     display: none;
   }
+  transition: all .3s;
+  &:hover {
+    color: ${p => p.theme.themeColor};
+  }
 `
 const MobileMenuLink = styled(Link)`
   font-weight: 600;
@@ -164,6 +168,7 @@ const StyledRiMenu2Line = styled(RiMenu2Line)`
 
 const MobileDiv = styled.div<inter_mobileMenu>`
   position: fixed;
+  z-index: 10;
   width: 100vw;
   height: 100vh;
   right: 0;

@@ -4,11 +4,11 @@
 export const PUBLIC_ROUTES = {
   default: '/',
   signup: '/signup',
-  login: 'login',
+  login: '/signin',
   features: '/features',
   pricing: '/pricing',
   faqs: '/faqs',
-  contactus: 'contactus',
+  contactus: '/contactus',
   error404: '/error404',
 }
 
