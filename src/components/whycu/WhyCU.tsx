@@ -53,8 +53,8 @@ const Wrapper = styled.div`
   margin-top: 50px;
   text-align: center;
   padding: 100px;
-  @media screen and (max-width: 969px) {
-    padding: 30px;
+  @media screen and (max-width: 1360px) {
+    padding: 20px;
   }
 `
 
@@ -74,6 +74,10 @@ const Container = styled.div`
   justify-content: space-between;
   gap: 10px;
   flex-wrap: wrap;
+
+  @media screen and (max-width: 1360px) {
+    
+  }
 
   @media screen and (max-width: 969px) {
     justify-content: center;

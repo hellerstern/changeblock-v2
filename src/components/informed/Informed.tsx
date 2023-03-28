@@ -6,7 +6,7 @@ const Informed = () => {
   return (
     <Wrapper>
       <p className="title">
-        Stay Informed
+        Keep up with the latest trends
       </p>
       <p className="desc">
         Enter your email below and be the first to know when we roll out new updates and keep uo with the latest trends.

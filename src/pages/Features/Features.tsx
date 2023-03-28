@@ -27,8 +27,8 @@ const Features = () => {
       subImg: ImgAnaCheck1,
       desc: [
         'Boost confidence levels',
-        'Access rist of success of failure',
-        'Analyze past and similiar project to compare result and outcomes'
+        'Assess risk of success or failure',
+        'Analyze past and similar projects to compare results and outcomes'
       ]
     },
     {
@@ -36,13 +36,13 @@ const Features = () => {
       img: ImgAna2,
       subImg: ImgAnaCheck2,
       desc: [
-        'Extract key information from document fast',
+        'Extract key information from documents fast',
         'Identify entities, relationships and other relevant data',
         'Convert information into structured forms for further analysis'
       ]
     },
     {
-      title: 'Submarization',
+      title: 'Summarization',
       img: ImgAna3,
       subImg: ImgAnaCheck3,
       desc: [
@@ -57,7 +57,7 @@ const Features = () => {
       subImg: ImgAnaCheck4,
       desc: [
         'Provides an aggregate sentiment score for each aspect of data',
-        'Provides an in-depth understand of the sentiment associated with different aspects',
+        'Provides an in-depth understanding of the sentiment associated with different aspects',
         'Allows users to identify trends and opportunities'
       ]
     },

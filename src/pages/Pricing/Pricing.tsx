@@ -48,8 +48,8 @@ const Pricing = () => {
     {
       recommend: false,
       img: ImgPricing3,
-      title: 'Standard Plan',
-      pricing: '$2999/mo',
+      title: 'Premium Plan',
+      pricing: '$3999/mo',
       subplans: [
         'Full Access to the What-if Analysis Tool',
         'Advanced Information Extraction',
