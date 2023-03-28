@@ -43,7 +43,7 @@ const Ourtool = () => {
       <Swiper
         slidesPerView={"auto"}
         spaceBetween={30}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        autoplay={{ delay: 15000, disableOnInteraction: false }}
         loop={true}
         pagination={{
           clickable: true,
@@ -68,9 +68,12 @@ const Ourtool = () => {
 
 const Wrapper = styled.div`
   margin-top: 400px;
+  padding: 50px;
+  @media screen and (max-width: 768px) {
+    padding: 20px;
+  }
   .swiper {
-    margin-left: 100px;
-    @media screen and (max-width: 1300px) {
+    /* @media screen and (max-width: 1300px) {
       margin: 0 100px;
     }
     @media screen and (max-width: 1024px) {
@@ -78,7 +81,7 @@ const Wrapper = styled.div`
     }
     @media screen and (max-width: 768px) {
       margin: 0 20px;
-    }
+    } */
   }
   .swiper-slide {
     text-align: center;
@@ -89,11 +92,7 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-
-    width: 80%;
-    @media screen and (max-width: 1300px) {
-      width: 100%;
-    }
+    width: 100%;
     background: rgba(247, 245, 245, 0.99);
     border-radius: 8px;
     padding: 56px 48px;
