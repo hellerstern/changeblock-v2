@@ -90,7 +90,6 @@ const Container = styled.div<inter_container>`
   display: flex;
   .login-back {
     width:  50%;
-    height: 100%;
     @media screen and (max-width: 820px) {
       display: none;
     }

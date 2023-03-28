@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Autoplay } from 'swiper';
 
 import { ImgOurtool1, ImgOurtool2, ImgOurtool3, ImgOurtool4 } from "../../assets/images";
 
@@ -7,9 +8,10 @@ import { ImgOurtool1, ImgOurtool2, ImgOurtool3, ImgOurtool4 } from "../../assets
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/autoplay";
 
 const Ourtool = () => {
-
+  SwiperCore.use([Autoplay]);
   const data = [
     {
       img: ImgOurtool1,
@@ -41,6 +43,8 @@ const Ourtool = () => {
       <Swiper
         slidesPerView={"auto"}
         spaceBetween={30}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        loop={true}
         pagination={{
           clickable: true,
         }}
