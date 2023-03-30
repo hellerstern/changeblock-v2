@@ -17,12 +17,13 @@ const Dashboard = () => {
 
 const Wrapper = styled.div`
   display: flex;
+  align-items: stretch;
 `
 
 const DashboardMain = styled.div`
   padding: 5px;
   width: calc(100vw - 220px);
-  background-color: #F5F5F5;;
+  background-color: #f5f5f5;
 `
 
 export default Dashboard;

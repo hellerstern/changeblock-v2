@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 import { ImgLogo } from "../../assets/images";
 
@@ -9,6 +9,9 @@ import {
   ImgSubcription,
   ImgContact,
   ImgSetting,
+
+  ImgSidebarBack1,
+  ImgSidebarBack2,
 } from '../../assets/images';
 
 const Sidebar = () => {
@@ -61,11 +64,17 @@ const Sidebar = () => {
   )
 }
 
+const customStyle = css`
+  background-image: url(${ImgSidebarBack2}), url(${ImgSidebarBack1});
+  background-position: 0 800px, 0 1200px;
+  background-repeat: no-repeat, no-repeat;
+  min-height: 100vh;
+`
+
 const Wrapper = styled.div`
   background-color: ${p => p.theme.themeColor};
   width: 220px;
-  height: 100%;
-  min-height: 100vh;
+  ${customStyle}
 `
 const Container = styled.div`
   padding-top: 40px;

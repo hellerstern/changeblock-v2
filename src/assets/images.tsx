@@ -66,6 +66,8 @@ import ImgAnalysis from './images/sidebar/analysis.png';
 import ImgSubcription from './images/sidebar/subscription.png';
 import ImgContact from './images/sidebar/contact.png';
 import ImgSetting from './images/sidebar/setting.png';
+import ImgSidebarBack1 from './images/sidebar/back1.png';
+import ImgSidebarBack2 from './images/sidebar/back2.png';
 
 export {
   ImgLogo,
@@ -163,4 +165,6 @@ export {
   ImgSubcription,
   ImgContact,
   ImgSetting,
+  ImgSidebarBack1,
+  ImgSidebarBack2,
 }
