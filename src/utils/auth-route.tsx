@@ -9,6 +9,7 @@ export const AuthRoute = () => {
 
   return Object.keys(JSON.parse(localStorage.getItem('profile') || '{}')).length === 0 ? (
     <Navigate to={PUBLIC_ROUTES.login} replace />
+    // <Outlet />
   ) : (
     <Outlet />
   );

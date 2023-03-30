@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { ImgLogo } from "../../assets/images";
 
 import { PRIVATE_ROUTES } from "../../config/routes";
@@ -50,7 +51,11 @@ const Sidebar = () => {
       </Container>
 
       <SidebarDiv>
-
+        {
+          data.map((item, index) => (
+            <Link to={item.url} key={index}><img src={item.img}></img>{item.name}</Link>
+          ))
+        }
       </SidebarDiv>
     </Wrapper>
   )
@@ -58,15 +63,12 @@ const Sidebar = () => {
 
 const Wrapper = styled.div`
   background-color: ${p => p.theme.themeColor};
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 220px;
   height: 100%;
   min-height: 100vh;
 `
 const Container = styled.div`
-  margin-top: 40px;
+  padding-top: 40px;
 `
 const Logo = styled.div`
   display: flex;
@@ -82,7 +84,24 @@ const Logo = styled.div`
   color: ${p => p.theme.fontColor3};
 `
 const SidebarDiv = styled.div`
-  
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-top: 100px;
+  gap: 70px;
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+
+    font-family: 'Inter-Thin';
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: white;
+    text-decoration: none;
+  }
 `
 
 export default Sidebar;
