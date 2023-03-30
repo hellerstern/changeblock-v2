@@ -29,7 +29,7 @@ const Login = () => {
     if (emailRef.current !== null && pwdRef.current !== null) {
       try {
         const result = await firebase.auth().signInWithEmailAndPassword(emailRef.current?.value, pwdRef.current?.value);
-        window.localStorage.setItem('profile', JSON.stringify(result));
+        localStorage.setItem('profile', JSON.stringify(result));
         navigate("/dashboard");
         enqueueSnackbar('Welcome', { variant: 'success' });
       } catch (error: any) {

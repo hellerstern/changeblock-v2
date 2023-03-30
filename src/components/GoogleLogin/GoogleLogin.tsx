@@ -9,9 +9,9 @@ import { ImgGoogle } from "../../assets/images";
 
 const GoogleLogin = () => {
 
-  useEffect(() => {
-    JSON.parse(localStorage.getItem('profile') || '{}') && navigate(PRIVATE_ROUTES.dashboard)
-  }, [])
+  // useEffect(() => {
+  //   JSON.parse(localStorage.getItem('profile') || '{}') && navigate(PRIVATE_ROUTES.dashboard)
+  // }, [])
 
   const navigate = useNavigate();
 
@@ -19,10 +19,13 @@ const GoogleLogin = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     try {
       const result = await firebase.auth().signInWithPopup(provider);
-      window.localStorage.setItme('profile', JSON.stringify(result));
+      localStorage.setItem('profile', JSON.stringify(result));
       navigate(PRIVATE_ROUTES.dashboard);
+
       enqueueSnackbar('Welcome', { variant: 'success' });
+
     } catch (error) {
+      console.log(error);
       enqueueSnackbar('Login failded', { variant: 'warning' });
     }
   }
