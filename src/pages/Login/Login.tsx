@@ -1,13 +1,16 @@
+import { useRef } from 'react';
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { enqueueSnackbar } from 'notistack';
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 
+
+import { PUBLIC_ROUTES } from "../../config/routes";
 import {
   ImgLoginBack,
   ImgLogo,
 } from "../../assets/images";
-
-import { PUBLIC_ROUTES } from "../../config/routes";
-
 import { btn1, input1 } from "../../components/globalStyles/globalStlyles";
 import GoogleLogin from "../../components/GoogleLogin/GoogleLogin";
 
@@ -16,13 +19,30 @@ interface inter_container {
 }
 
 const Login = () => {
+
+  const navigate = useNavigate();
+
+  const emailRef = useRef<HTMLInputElement>(null);
+  const pwdRef = useRef<HTMLInputElement>(null);
+
+  const handleLogin = async () => {
+    if (emailRef.current !== null && pwdRef.current !== null) {
+      try {
+        const result = await firebase.auth().signInWithEmailAndPassword(emailRef.current?.value, pwdRef.current?.value);
+        window.localStorage.setItem('profile', JSON.stringify(result));
+        navigate("/dashboard");
+        enqueueSnackbar('Welcome', { variant: 'success' });
+      } catch (error: any) {
+        enqueueSnackbar(error.message, { variant: 'warning' });
+      }
+    }
+  };
   return (
     <Wrapper>
       <Container bgImg={ImgLoginBack}>
         <img src={ImgLoginBack} className='login-back' />
 
         <LogonForm>
-
           <div className="logo">
             <img src={ImgLogo}></img>
             <p>
@@ -38,10 +58,10 @@ const Login = () => {
           </div>
 
           <div className="main">
-            <input placeholder="Full name"></input>
-            <input placeholder="Password"></input>
+            <input placeholder="Email" ref={emailRef}></input>
+            <input placeholder="Password" ref={pwdRef} type='password'></input>
 
-            <button className="sign-in">Sign in</button>
+            <button className="sign-in" onClick={handleLogin}>Sign in</button>
 
             <GoogleLogin></GoogleLogin>
 

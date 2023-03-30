@@ -16,5 +16,9 @@ export const PUBLIC_ROUTES = {
 // Need authentication
 // ===========================
 export const PRIVATE_ROUTES = {
-  dashboard: '/dashboard'
+  dashboard: '/dashboard',
+  analysis: '/analysis',
+  subscription: '/subscription',
+  contact: '/contact',
+  setting: '/setting',
 }

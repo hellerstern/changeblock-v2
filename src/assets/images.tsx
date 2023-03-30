@@ -58,6 +58,14 @@ import ImgPricingCheck from './images/pricing/pricing-check.png';
 import ImgMail from './images/mail.png';
 import ImgPhone from './images/phone.png';
 
+
+// Sidebar Icons
+import ImgDashboard from './images/sidebar/dashboard.png';
+import ImgAnalysis from './images/sidebar/analysis.png';
+import ImgSubcription from './images/sidebar/subscription.png';
+import ImgContact from './images/sidebar/contact.png';
+import ImgSetting from './images/sidebar/setting.png';
+
 export {
   ImgLogo,
   ImgPlayCircle,
@@ -144,4 +152,13 @@ export {
   ImgPricing2,
   ImgPricing3,
   ImgPricingCheck,
+}
+
+// Sidebar icons
+export {
+  ImgDashboard,
+  ImgAnalysis,
+  ImgSubcription,
+  ImgContact,
+  ImgSetting,
 }

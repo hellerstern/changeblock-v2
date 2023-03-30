@@ -1,10 +1,34 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
 import styled from "styled-components";
-
+import firebase from "firebase/compat/app";
+import { enqueueSnackbar } from "notistack";
+import "firebase/compat/auth";
+import { PRIVATE_ROUTES } from "../../config/routes";
 import { ImgGoogle } from "../../assets/images";
 
 const GoogleLogin = () => {
+
+  useEffect(() => {
+    JSON.parse(localStorage.getItem('profile') || '{}') && navigate(PRIVATE_ROUTES.dashboard)
+  }, [])
+
+  const navigate = useNavigate();
+
+  const handleGoogleLogin = async () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    try {
+      const result = await firebase.auth().signInWithPopup(provider);
+      window.localStorage.setItme('profile', JSON.stringify(result));
+      navigate(PRIVATE_ROUTES.dashboard);
+      enqueueSnackbar('Welcome', { variant: 'success' });
+    } catch (error) {
+      enqueueSnackbar('Login failded', { variant: 'warning' });
+    }
+  }
+
   return (
-    <Wrapper>
+    <Wrapper onClick={handleGoogleLogin}>
       <img src={ImgGoogle} />
       Sign in with Google
     </Wrapper>
