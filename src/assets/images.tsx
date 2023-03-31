@@ -13,6 +13,9 @@ import ImgFaqsBack from './images/faqs-back.png';
 import ImgLoginBack from './images/login-back.png';
 import ImgGoogle from './images/google.png';
 import ImgBill from './images/bill.png';
+import ImgOpenFolder from './images/folder-open.png';
+import ImgDocu from './images/document-text.png';
+
 
 import ImgComp1 from './images/companies/company1.png';
 import ImgComp2 from './images/companies/company2.png';
@@ -94,6 +97,9 @@ export {
   ImgLoginBack,
   ImgGoogle,
   ImgBill,
+
+  ImgOpenFolder,
+  ImgDocu,
 }
 
 // Companies

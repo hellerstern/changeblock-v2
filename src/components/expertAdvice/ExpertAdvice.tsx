@@ -99,7 +99,7 @@ const Expert = styled.div`
       display: flex;
       align-items: center;
       gap: 8px;
-      font-family: 'Inter-Medium';
+      font-family: 'Inter-Medium'; 
       font-weight: 500;
       font-size: 12px;
       line-height: 15px;

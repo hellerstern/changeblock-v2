@@ -18,7 +18,15 @@ import { ApiUrls } from '../config/APIConfig';
 const Routers = () => {
 
   const [randomIndex, setRandomIndex] = useState(null);
+  const [data1, setData1] = useState(null);
+  const [data2, setData2] = useState(null);
+  const [data3, setData3] = useState([]);
 
+  const [loading1, setLoading1] = useState(false);
+  const [loading2, setLoading2] = useState(false);
+  const [loading3, setLoading3] = useState(false);
+  const [data3OfPDF, setData3OfPDF] = useState('');
+  const [fileName, setFileName] = useState('');
 
   const getRandomIndex = async () => {
     const res = await axios(ApiUrls.GetRandomIndex);
@@ -32,6 +40,15 @@ const Routers = () => {
   return (
     <AppContext.Provider value={{
       randomIndex, getRandomIndex,
+      data1, setData1,
+      data2, setData2,
+      data3, setData3,
+      fileName, setFileName,
+      data3OfPDF, setData3OfPDF,
+
+      loading1, setLoading1,
+      loading2, setLoading2,
+      loading3, setLoading3,
     }}>
       <BrowserRouter>
         <Routes>

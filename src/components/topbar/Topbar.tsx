@@ -34,32 +34,30 @@ const Topbar = () => {
   ]
   return (
     <Wrapper>
-      <Container>
-        <TopbarDiv flag={flagBar}
-        >
-          {
-            data.map((item, index) => (
-              <p key={index} onClick={() => setFlagBar(index + 1)}>
-                {
-                  item.name
-                }
-              </p>
-            ))
-          }
-        </TopbarDiv>
+      <TopbarDiv flag={flagBar}
+      >
         {
-          data[flagBar - 1].component
+          data.map((item, index) => (
+            <p key={index} onClick={() => setFlagBar(index + 1)}>
+              {
+                item.name
+              }
+            </p>
+          ))
         }
-      </Container>
+      </TopbarDiv>
+      {
+        data[flagBar - 1].component
+      }
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
   margin-top: 20px;
-`
-const Container = styled.div`
-  
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 `
 const TopbarDiv = styled.div<inter_topbar>`
   display: flex;

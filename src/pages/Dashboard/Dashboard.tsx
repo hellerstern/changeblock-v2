@@ -23,7 +23,10 @@ const Wrapper = styled.div`
 const DashboardMain = styled.div`
   padding: 5px;
   width: calc(100vw - 220px);
+  min-height: calc(100vh -20px);
   background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
 `
 
 export default Dashboard;
