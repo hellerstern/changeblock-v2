@@ -14,6 +14,7 @@ import Dashboard from '../pages/Dashboard/Dashboard';
 
 import { AuthRoute } from '../utils/auth-route';
 import { ApiUrls } from '../config/APIConfig';
+import SubScriptions from '../pages/SubScriptions/SubScriptions';
 
 const Routers = () => {
 
@@ -61,6 +62,7 @@ const Routers = () => {
           <Route path={PUBLIC_ROUTES.signup} element={<SignUp></SignUp>}></Route>
           <Route element={<AuthRoute></AuthRoute>}>
             <Route path={PRIVATE_ROUTES.dashboard} element={<Dashboard></Dashboard>} />
+            <Route path={PRIVATE_ROUTES.subscription} element={<SubScriptions></SubScriptions>}></Route>
           </Route>
           <Route path='*' element={<h1>404 Error</h1>}></Route>
         </Routes>

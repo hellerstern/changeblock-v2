@@ -15,6 +15,7 @@ import ImgGoogle from './images/google.png';
 import ImgBill from './images/bill.png';
 import ImgOpenFolder from './images/folder-open.png';
 import ImgDocu from './images/document-text.png';
+import ImgCard from './images/card.png';
 
 
 import ImgComp1 from './images/companies/company1.png';
@@ -100,6 +101,8 @@ export {
 
   ImgOpenFolder,
   ImgDocu,
+
+  ImgCard,
 }
 
 // Companies
