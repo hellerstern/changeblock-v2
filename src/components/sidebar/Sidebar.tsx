@@ -56,7 +56,7 @@ const Sidebar = () => {
       <SidebarDiv>
         {
           data.map((item, index) => (
-            <Link to={item.url} key={index}><img src={item.img}></img>{item.name}</Link>
+            <Link to={item.url} key={index}><img src={item.img}></img><p>{item.name}</p></Link>
           ))
         }
       </SidebarDiv>
@@ -74,6 +74,9 @@ const customStyle = css`
 const Wrapper = styled.div`
   background-color: ${p => p.theme.themeColor};
   width: 220px;
+  @media screen and (max-width: 1024px) {
+    width: 70px;
+  }
   ${customStyle}
 `
 const Container = styled.div`
@@ -91,6 +94,12 @@ const Logo = styled.div`
   font-size: 20px;
   line-height: 24px;
   color: ${p => p.theme.fontColor3};
+
+  span {
+    @media screen and (max-width: 1024px) {
+      display: none;
+    }
+  }
 `
 const SidebarDiv = styled.div`
   display: flex;
@@ -110,6 +119,12 @@ const SidebarDiv = styled.div`
     line-height: 19px;
     color: white;
     text-decoration: none;
+    @media screen and (max-width: 1024px) {
+      justify-content: center;
+      p {
+        display: none;
+      }
+    }
   }
 `
 
