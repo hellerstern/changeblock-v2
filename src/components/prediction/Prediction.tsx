@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import Chart from 'react-apexcharts';
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from 'axios';
 import AppContext from "../../context/context";
 import { ApiUrls } from "../../config/APIConfig";
+import Loading from "../loading/Loading";
 
 const Prediction = () => {
 
@@ -22,7 +23,6 @@ const Prediction = () => {
       index: AppData.randomIndex
     })
       .then(res => {
-        console.log([res.data.prediction.probability[0] * 100, res.data.prediction.probability[1] * 100]);
         setSeries([Number((res.data.prediction.probability[0] * 100).toFixed(2)), Number((res.data.prediction.probability[1] * 100).toFixed(2))]);
       })
       .catch(err => {
@@ -40,58 +40,68 @@ const Prediction = () => {
         <p>Prediction</p>
         <p>Project 64</p>
       </div>
+      {
+        series[0] !== 0 ? (
+          <React.Fragment>
+            <table>
+              <tr>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Probability
+                </th>
+              </tr>
 
-      <table>
-        <tr>
-          <th>
-            Name
-          </th>
-          <th>
-            Probability
-          </th>
-        </tr>
+              <tr>
+                <td>Sucess</td>
+                <td>
+                  {
+                    series[1]
+                  }%
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Failure
+                </td>
+                <td>
+                  {
+                    series[0]
+                  }%
+                </td>
+              </tr>
+            </table>
+            <div className="chart">
+              <Chart options={options} series={series} type="donut" height={300} width={300} />
+            </div>
 
-        <tr>
-          <td>Sucess</td>
-          <td>
-            {
-              series[0]
-            }%
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Failure
-          </td>
-          <td>
-            {
-              series[1]
-            }%
-          </td>
-        </tr>
-      </table>
-      <div className="chart">
-        <Chart options={options} series={series} type="donut" height={300} width={300} />
-      </div>
+            <div className="marks">
+              <div>
+                <svg width="20" height="20">
+                  <rect width="20" height="20" style={{ fill: '#FF8B20' }} />
+                </svg>
+                {
+                  series[1]
+                }
+              </div>
+              <div>
+                <svg width="20" height="20">
+                  <rect width="20" height="20" style={{ fill: '#3768CE' }} />
+                </svg>
+                {
+                  series[0]
+                }
+              </div>
+            </div>
+          </React.Fragment>
+        ) : (
+          <div className="loading">
+            <Loading></Loading>
+          </div>
+        )
+      }
 
-      <div className="marks">
-        <div>
-          <svg width="20" height="20">
-            <rect width="20" height="20" style={{ fill: '#FF8B20' }} />
-          </svg>
-          {
-            series[0]
-          }
-        </div>
-        <div>
-          <svg width="20" height="20">
-            <rect width="20" height="20" style={{ fill: '#3768CE' }} />
-          </svg>
-          {
-            series[1]
-          }
-        </div>
-      </div>
     </Wrapper>
   );
 }
@@ -101,6 +111,14 @@ const Wrapper = styled.div`
   padding: 20px;
   border-radius: 8px;
   width: 35%;
+
+  position: relative;
+  .loading {
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 40px);
+  }
+
   .title {
     display: flex;
     align-items: center;

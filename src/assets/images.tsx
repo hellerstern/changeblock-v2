@@ -69,6 +69,11 @@ import ImgSetting from './images/sidebar/setting.png';
 import ImgSidebarBack1 from './images/sidebar/back1.png';
 import ImgSidebarBack2 from './images/sidebar/back2.png';
 
+// Expert Advice
+import ImgAdviceWoman from './images/advice/woman.png';
+import ImgAdviceMail from './images/advice/mail.png';
+import ImgAdviceCall from './images/advice/call.png';
+
 export {
   ImgLogo,
   ImgPlayCircle,
@@ -167,4 +172,11 @@ export {
   ImgSetting,
   ImgSidebarBack1,
   ImgSidebarBack2,
+}
+
+// Expert advice
+export {
+  ImgAdviceWoman,
+  ImgAdviceMail,
+  ImgAdviceCall,
 }

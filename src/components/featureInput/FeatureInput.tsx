@@ -130,7 +130,7 @@ const Wrapper = styled.div`
   padding: 25px;
   background: #FFFFFF;
   border-radius: 8px;
-  margin: 20px 0;
+  margin-top: 20px;
   .title {
     font-family: 'Inter-Medium';
     font-weight: 600;

@@ -2,14 +2,16 @@ import { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import AppContext from "../../../context/context";
-import ContributionPlot from "../../contributionPlot/ContributionPlot";
 import FeatureInput from "../../featureInput/FeatureInput";
 import Prediction from "../../prediction/Prediction";
 import { btn1 } from "../../globalStyles/globalStlyles";
-import ChartBox from "../../chartbox/ChartBox";
 import { ApiUrls } from "../../../config/APIConfig";
 import ContributionTable from "../../contributionTable/ContributionTable";
+import ContributionPlot1 from "../../contributionPlot1/ContributionPlot1";
 
+import ContributionPlot from "../../contributionPlot/ContributionPlot";
+import ChartBox from "../../chartbox/ChartBox";
+import ExpertAdvice from "../../expertAdvice/ExpertAdvice";
 const WhatIfAnalysis = () => {
 
   const AppData = useContext(AppContext);
@@ -40,23 +42,11 @@ const WhatIfAnalysis = () => {
       <FeatureInput></FeatureInput>
       <Graphs>
         <Prediction></Prediction>
-        <ChartBox
-          heading={"Contribution Plot"}
-          subheading={
-            "How has each feature contributed to the prediction?"
-          }
-          children={
-            <ContributionPlot
-              chart={
-                contribution
-              }
-            />
-          }
-          popout={true}
-        ></ChartBox>
+        <ContributionPlot1 />
       </Graphs>
       <Graphs>
         <ContributionTable />
+        <ExpertAdvice></ExpertAdvice>
       </Graphs>
     </Wrapper>
   )
@@ -77,6 +67,7 @@ const Graphs = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: stretch;
+  margin: 20px 0;
 `
 
 export default WhatIfAnalysis;

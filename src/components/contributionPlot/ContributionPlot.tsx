@@ -29,7 +29,6 @@ const ContributionPlot = ({ chart }: { chart: any }) => {
       <div className="d-flex flex-grow text-center">
         <iframe srcDoc={chart} height={500} width={"100%"}></iframe>
       </div>
-
     </Wrapper>
   )
 }
