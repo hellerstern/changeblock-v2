@@ -10,25 +10,14 @@ const FeatureInput = () => {
   const [featureInput, setFeatureInput] = useState(null);
 
   async function getFeatureInput() {
-    await fetch(ApiUrls.GetFeaturesInput,
-      {
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        method: "POST",
-        body: JSON.stringify({ index: AppData.randomIndex })
-      }).then(res => res.json()).then(res => {
-        setFeatureInput(res.features);
-      }).catch(err => console.log(err));
-    // await axios.post(ApiUrls.GetFeaturesInput, { index: AppData.randomIndex })
-    //   .then(res => {
-    //     setFeatureInput(res.data.features);
-    //     console.log(res.data.features);
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
-    //   })
+    await axios.post(ApiUrls.GetFeaturesInput, { index: AppData.randomIndex })
+      .then(res => {
+        setFeatureInput(res.data.features);
+        console.log(res.data.features);
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }
 
   useEffect(() => {

@@ -9,10 +9,6 @@ import { ImgGoogle } from "../../assets/images";
 
 const GoogleLogin = () => {
 
-  // useEffect(() => {
-  //   JSON.parse(localStorage.getItem('profile') || '{}') && navigate(PRIVATE_ROUTES.dashboard)
-  // }, [])
-
   const navigate = useNavigate();
 
   const handleGoogleLogin = async () => {

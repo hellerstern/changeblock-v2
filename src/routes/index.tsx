@@ -15,6 +15,9 @@ import Dashboard from '../pages/Dashboard/Dashboard';
 import { AuthRoute } from '../utils/auth-route';
 import { ApiUrls } from '../config/APIConfig';
 import SubScriptions from '../pages/SubScriptions/SubScriptions';
+import ContactSupport from '../pages/ContactSupport/ContactSupport';
+import Setting from '../pages/Setting/Setting';
+import AnaHistory from '../pages/AnaHistory/AnaHistory';
 
 const Routers = () => {
 
@@ -62,7 +65,10 @@ const Routers = () => {
           <Route path={PUBLIC_ROUTES.signup} element={<SignUp></SignUp>}></Route>
           <Route element={<AuthRoute></AuthRoute>}>
             <Route path={PRIVATE_ROUTES.dashboard} element={<Dashboard></Dashboard>} />
+            <Route path={PRIVATE_ROUTES.analysis} element={<AnaHistory></AnaHistory>}></Route>
             <Route path={PRIVATE_ROUTES.subscription} element={<SubScriptions></SubScriptions>}></Route>
+            <Route path={PRIVATE_ROUTES.contact} element={<ContactSupport></ContactSupport>}></Route>
+            <Route path={PRIVATE_ROUTES.setting} element={<Setting></Setting>}></Route>
           </Route>
           <Route path='*' element={<h1>404 Error</h1>}></Route>
         </Routes>

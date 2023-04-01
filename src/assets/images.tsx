@@ -78,6 +78,8 @@ import ImgAdviceWoman from './images/advice/woman.png';
 import ImgAdviceMail from './images/advice/mail.png';
 import ImgAdviceCall from './images/advice/call.png';
 
+import ImgDownloadDoc from './images/document-download.png';
+
 export {
   ImgLogo,
   ImgPlayCircle,
@@ -103,6 +105,7 @@ export {
   ImgDocu,
 
   ImgCard,
+  ImgDownloadDoc,
 }
 
 // Companies

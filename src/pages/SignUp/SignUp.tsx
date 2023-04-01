@@ -1,7 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import { updateProfile } from "firebase/auth";
 import {
   ImgLoginBack,
   ImgLogo,
@@ -16,11 +18,44 @@ import { PUBLIC_ROUTES } from "../../config/routes";
 import { btn1, input1 } from "../../components/globalStyles/globalStlyles";
 import GoogleLogin from "../../components/GoogleLogin/GoogleLogin";
 
+import { enqueueSnackbar } from 'notistack';
+
 interface inter_container {
   bgImg: string,
 }
 
+
+
 const SignUp = () => {
+  const [firstName, setFirstName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [password1, setPassword1] = useState('');
+  const navigate = useNavigate();
+
+  const handleEmailSignup = async () => {
+    if (password != password1) {
+      enqueueSnackbar('Password is not matched', { variant: 'warning' });
+    } else if (password.length < 8) {
+      enqueueSnackbar('Password length must be logner than 8', { variant: 'warning' });
+    } else {
+      try {
+        const result = await firebase
+          .auth()
+          .createUserWithEmailAndPassword(email, password);
+        const user = firebase.auth().currentUser as firebase.User;
+        updateProfile(user, { displayName: `${firstName}` })
+          .then(() => {
+            navigate("/dashboard");
+          })
+          .catch((error: any) => {
+            enqueueSnackbar(error.message, { variant: 'warning' });
+          });
+      } catch (error: any) {
+        enqueueSnackbar(error.message, { variant: 'warning' });
+      }
+    }
+  };
 
   const [confirmFlg, setConfirmFlg] = useState(false);
 
@@ -46,19 +81,21 @@ const SignUp = () => {
           </div>
 
           <div className="main">
-            <input placeholder="Full name"></input>
+            <input placeholder="Full name" value={firstName} onChange={(e) =>
+              setFirstName(e.target.value)
+            }></input>
 
-            <input placeholder="Email"></input>
+            <input placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
 
             <div>
-              <input placeholder="Password"></input>
+              <input placeholder="Password" type={'password'} value={password} onChange={(e) => setPassword(e.target.value)}></input>
               <Label>
                 *At least 8 characters
               </Label>
             </div>
 
             <div>
-              <input placeholder="Confirm password"></input>
+              <input placeholder="Confirm password" type={'password'} value={password1} onChange={(e) => setPassword1(e.target.value)}></input>
               <ConfirmTerm onClick={() => setConfirmFlg(!confirmFlg)}>
                 {
                   confirmFlg ? <MdOutlineCheckBox /> : <MdOutlineCheckBoxOutlineBlank />
@@ -67,7 +104,7 @@ const SignUp = () => {
               </ConfirmTerm>
             </div>
 
-            <button className="sign-in"> Create Account </button>
+            <button className="sign-in" onClick={handleEmailSignup}> Create Account </button>
 
             <GoogleLogin></GoogleLogin>
 

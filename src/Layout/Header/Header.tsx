@@ -53,7 +53,7 @@ const Header = (props: inter_header) => {
               <HeaderLink to={item.link} key={index}>{item.txt}</HeaderLink>
             ))
           }
-          <SignUpLink to={PUBLIC_ROUTES.signup}>Sign Up</SignUpLink>
+          <SignUpLink to={PUBLIC_ROUTES.login}>Sign In</SignUpLink>
           <StyledRiMenu2Line onClick={() => setMobMenu(!mobMenu)} className='menu-icon'></StyledRiMenu2Line>
         </HeaderLinks>
 

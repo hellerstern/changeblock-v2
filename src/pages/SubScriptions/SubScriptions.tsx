@@ -7,7 +7,30 @@ import { ImgCard } from "../../assets/images";
 
 const SubScriptions = () => {
 
-  const trs = ['Subscription Type', 'Date', 'Price', 'Tax Invoice Number', 'Status']
+  const trs = ['Subscription Type', 'Date', 'Price', 'Tax Invoice Number', 'Status'];
+  const data = [
+    {
+      su: 'Basic Plan',
+      da: '23rd Feb 2023',
+      pr: 50,
+      ta: '12356788',
+      st: 'Paid',
+    },
+    {
+      su: 'Premium Plan',
+      da: '23rd Jan 2023',
+      pr: 65,
+      ta: '34578990',
+      st: 'Paid',
+    },
+    {
+      su: 'Premium Plan',
+      da: '23rd Dec 2022',
+      pr: '65',
+      ta: '34578990',
+      st: 'Paid',
+    }
+  ]
 
   return (
     <Wrapper>
@@ -73,8 +96,35 @@ const SubScriptions = () => {
 
             <table>
               <tr>
-
+                {
+                  trs.map((item, index) => (
+                    <th key={index}>
+                      {item}
+                    </th>
+                  ))
+                }
               </tr>
+              {
+                data.map((item: any, index) => (
+                  <tr key={index}>
+                    <td>
+                      {item.su}
+                    </td>
+                    <td>
+                      {item.da}
+                    </td>
+                    <td>
+                      {item.pr}
+                    </td>
+                    <td>
+                      {item.ta}
+                    </td>
+                    <td>
+                      {item.st}
+                    </td>
+                  </tr>
+                ))
+              }
             </table>
           </SubScriptionHistory>
         </SubScriptContainer>
@@ -240,6 +290,39 @@ const SubScriptionHistory = styled.div`
   background: #FFFFFF;
   border-radius: 8px;
   padding: 25px 33px;
+  margin-top: 20px;
+  table {
+    margin-top: 20px;
+    width: 100%;
+    tr:nth-child(1) {
+      border-bottom: 1px solid red;
+    }
+  }
+  th {
+    text-align: left;
+    font-family: 'Inter-Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: ${p => p.theme.fontColor2};
+    padding: 10px 0;
+    margin: 10px 0;
+    border-bottom: 1px solid #D4D5D6;
+  }
+  tr {
+    td:nth-last-child() {
+      color: red;
+    }
+  }
+  td {
+    font-family: 'Inter-Regular';
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    padding: 10px 0;
+    color: ${p => p.theme.fontColor2};
+  }
 `
 
 export default SubScriptions;
