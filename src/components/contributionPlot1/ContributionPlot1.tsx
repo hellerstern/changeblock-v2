@@ -34,6 +34,27 @@ const ContributionPlot1 = () => {
       });
   }
 
+  const getData1 = async () => {
+    await axios.post(ApiUrls.GetContribSummary, {
+      features: AppData.featureInput
+    })
+      .then(response => {
+        let reason = response.data.data.Reason;
+        let effect = response.data.data.Effect;
+        for (let i = 0; i < reason.length; i++) {
+          reason[i] = reason[i].split('=')[0].trim();
+        }
+        for (let i = 0; i < effect.length; i++) {
+          effect[i] = Number(effect[i].replace('%', '')) < 0 ? 0 : Number(effect[i].replace('%', ''));
+        }
+        setReason(reason);
+        setEffect(effect);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   const options = {
     chart: {
       id: 'contribution',
@@ -75,7 +96,11 @@ const ContributionPlot1 = () => {
 
   useEffect(() => {
     getData();
-  }, [AppData.randomIndex])
+  }, [AppData.randomIndex]);
+
+  useEffect(() => {
+    getData1();
+  }, [AppData.featureInput]);
 
 
 

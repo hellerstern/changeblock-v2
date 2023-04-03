@@ -1,4 +1,7 @@
+import { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
+import {FaTelegramPlane} from 'react-icons/fa';
+import axios from "axios";
 
 import {
   ImgAdviceWoman,
@@ -10,6 +13,24 @@ import { input1, btn1 } from "../globalStyles/globalStlyles";
 
 const ExpertAdvice = () => {
 
+  const inputRef = useRef(null);
+  const [msg, setMsg] = useState('');
+  const [chatContent, setChatContent] = useState<any>([]);
+
+  useEffect(() => {
+      console.log("chatContent", chatContent);
+  }, [chatContent]);
+
+  const chatWithChatGpt = async () => {
+      setChatContent((chatContent: any) => [...chatContent, {me: msg}]);
+      setMsg('');
+      await axios.post('https://chatgpt-analysis.herokuapp.com/expert_analysis', {
+          user_content: msg
+      }).then(res => {
+          setChatContent((chatContent: any) => [...chatContent, {helper: res.data.response}]);
+      }).then(err => console.log(err))
+  }
+
   const expertProfile = {
     name: 'Nene Ajayi',
     avatar: ImgAdviceWoman,
@@ -18,10 +39,10 @@ const ExpertAdvice = () => {
 
   return (
     <Wrapper>
-      <div className="title">
-        <p>Contribution Table</p>
+      {/* <div className="title">
         <p></p>
-      </div>
+        <p></p>
+      </div> */}
 
       <ContactDiv>
         <Expert>
@@ -44,10 +65,37 @@ const ExpertAdvice = () => {
           <img src={ImgAdviceCall}></img>
         </Infos>
       </ContactDiv>
-      <MsgBox></MsgBox>
+      <MsgBox>
+        {
+          chatContent.map((item: any, index: any) => 
+          (
+            <>
+              {
+                  item.me && (
+                      <p><b>me:</b> {item.me}</p>
+                  )
+              }
+              {
+                  item.helper && (
+                      <p><b>insightX:</b> {item.helper}</p>
+                  )
+              }
+          </>
+          ))
+        }
+      </MsgBox>
+      <MsgInput>
+        <input ref={inputRef} onKeyDown={(e) => {
+                        if (e.code !== 'Enter') return;
+                        chatWithChatGpt();
+                    }} 
+                    value={msg}
+                    onChange={(e) => setMsg(e.target.value)}></input>
+        <FaTelegramPlane onClick={() => chatWithChatGpt()}></FaTelegramPlane>
+      </MsgInput>
 
       <SendMsg>
-        <button>Send message</button>
+        {/* <button>Send message</button> */}
       </SendMsg>
     </Wrapper>
   )
@@ -113,10 +161,11 @@ const Infos = styled.div`
   align-items: center;
   gap: 20px;
 `
-const MsgBox = styled.textarea`
+const MsgBox = styled.div`
   ${input1}
   width: 100%;
-  height: 185px;
+  max-height: 185px;
+  min-height: 185px;
 
   font-family: 'Inter-Regular';
   font-weight: 500;
@@ -124,11 +173,35 @@ const MsgBox = styled.textarea`
   line-height: 19px;
   color: ${p => p.theme.themeColor2};
   margin-bottom: 5px;
+
+  overflow-y: auto;
+
+  p {
+    margin: 10px 0;
+  }
 `
 const SendMsg = styled.div`
   button {
     ${btn1}
     float: right;
   }
+`
+const MsgInput = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  input {
+    ${input1}
+    font-size: 14px;
+    padding: 10px;
+    flex: 1;
+  }
+  svg {
+    color: ${p => p.theme.themeColor};
+    transform: scale(1.3);
+    cursor: pointer;
+  }
+  margin: 20px 0;
 `
 export default ExpertAdvice;

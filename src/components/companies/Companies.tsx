@@ -23,7 +23,7 @@ interface inter_swiper {
 const Companies = () => {
   return (
     <Wrapper>
-      <p className="title">Join over 32 companies growing with Changeblock InsightX</p>
+      <p className="title">Join over 32 companies growing with InsightX</p>
       <Container backImg={ImgBorder}>
         <CompanyList>
           <img src={ImgComp1}></img>

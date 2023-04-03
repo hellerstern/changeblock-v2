@@ -12,6 +12,7 @@ import ContributionPlot1 from "../../contributionPlot1/ContributionPlot1";
 import ContributionPlot from "../../contributionPlot/ContributionPlot";
 import ChartBox from "../../chartbox/ChartBox";
 import ExpertAdvice from "../../expertAdvice/ExpertAdvice";
+import Summary from "../../Summary/Summary";
 const WhatIfAnalysis = () => {
 
   const AppData = useContext(AppContext);
@@ -48,6 +49,7 @@ const WhatIfAnalysis = () => {
         <ContributionTable />
         <ExpertAdvice></ExpertAdvice>
       </Graphs>
+      <Summary></Summary>
     </Wrapper>
   )
 }

@@ -46,14 +46,14 @@ const Login = () => {
           <div className="logo">
             <img src={ImgLogo}></img>
             <p>
-              ChangeBlock
+              INSIGHTX
             </p>
           </div>
 
           <div className="labels">
             <p className="title">Welcome Back!</p>
             <p className="desc">
-              Continue exploring ChangeBlock InsightX!
+              Continue exploring InsightX!
             </p>
           </div>
 

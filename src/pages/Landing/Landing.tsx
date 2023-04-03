@@ -36,7 +36,7 @@ const Landing = () => {
         <Header themeFlag={0} />
         <Section1>
           <h1>Simplifying complex climate data</h1>
-          <p>Discover the power of data driven insights with Changeblock’s InsightX and transform climate data into actionable, intelligent information.</p>
+          <p>Discover the power of data driven insights with InsightX and transform climate data into actionable, intelligent information.</p>
           <Buttons>
             <SignUp to={PUBLIC_ROUTES.signup}>Register for Free</SignUp>
             <WatchDemo to='/'>Watch Demo <img src={ImgPlayCircle}></img></WatchDemo>
@@ -55,7 +55,7 @@ const Landing = () => {
           </StyledP1>
 
           <StyledP2>
-            Changeblock’s InsightX uses state of the art deep learning to deliver simple, valuable, actionable information and insights through our all in one dashboard. InsightX makes accessing millions of climate data easy and fast.
+            InsightX uses state of the art deep learning to deliver simple, valuable, actionable information and insights through our all in one dashboard. InsightX makes accessing millions of climate data easy and fast.
           </StyledP2>
 
           <Link to={PUBLIC_ROUTES.signup}>Register for Free</Link>

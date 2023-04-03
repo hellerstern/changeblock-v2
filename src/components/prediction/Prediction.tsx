@@ -10,11 +10,13 @@ const Prediction = () => {
 
   const AppData = useContext(AppContext);
 
-  const [series, setSeries] = useState([0, 0]);
   const options = {
     colors: ['#3768CE', '#FF8B20'],
     legend: {
       show: false,
+    },
+    tooltip: {
+      enabled: false, // Set this to false to disable the tooltip
     },
   };
 
@@ -23,7 +25,19 @@ const Prediction = () => {
       index: AppData.randomIndex
     })
       .then(res => {
-        setSeries([Number((res.data.prediction.probability[0] * 100).toFixed(2)), Number((res.data.prediction.probability[1] * 100).toFixed(2))]);
+        AppData.setSeries([Number((res.data.prediction.probability[0] * 100).toFixed(2)), Number((res.data.prediction.probability[1] * 100).toFixed(2))]);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
+  const getPrediction1 = async () => {
+    await axios.post(ApiUrls.GetPrediction, {
+      features: AppData.featureInput
+    })
+      .then(res => {
+        AppData.setSeries([Number((res.data.prediction.probability[0] * 100).toFixed(2)), Number((res.data.prediction.probability[1] * 100).toFixed(2))]);
       })
       .catch(err => {
         console.log(err);
@@ -34,6 +48,10 @@ const Prediction = () => {
     getPrediction();
   }, [AppData.randomIndex])
 
+  useEffect(() => {
+    getPrediction1();
+  }, [AppData.featureInput])
+
   return (
     <Wrapper>
       <div className="title">
@@ -41,7 +59,7 @@ const Prediction = () => {
         <p>Project 64</p>
       </div>
       {
-        series[0] !== 0 ? (
+        AppData.series[0] !== 0 ? (
           <React.Fragment>
             <table>
               <tr>
@@ -57,7 +75,7 @@ const Prediction = () => {
                 <td>Sucess</td>
                 <td>
                   {
-                    series[1]
+                    AppData.series[1]
                   }%
                 </td>
               </tr>
@@ -67,13 +85,13 @@ const Prediction = () => {
                 </td>
                 <td>
                   {
-                    series[0]
+                    AppData.series[0]
                   }%
                 </td>
               </tr>
             </table>
             <div className="chart">
-              <Chart options={options} series={series} type="donut" height={300} width={300} />
+              <Chart options={options} series={AppData.series} type="donut" height={300} width={300} />
             </div>
 
             <div className="marks">
@@ -82,7 +100,7 @@ const Prediction = () => {
                   <rect width="20" height="20" style={{ fill: '#FF8B20' }} />
                 </svg>
                 {
-                  series[1]
+                  AppData.series[1]
                 }
               </div>
               <div>
@@ -90,7 +108,7 @@ const Prediction = () => {
                   <rect width="20" height="20" style={{ fill: '#3768CE' }} />
                 </svg>
                 {
-                  series[0]
+                  AppData.series[0]
                 }
               </div>
             </div>

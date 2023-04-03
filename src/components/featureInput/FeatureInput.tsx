@@ -7,13 +7,12 @@ import AppContext from "../../context/context";
 const FeatureInput = () => {
 
   const AppData = useContext(AppContext);
-  const [featureInput, setFeatureInput] = useState(null);
+  // const [featureInput, setFeatureInput] = useState<any>({});
 
   async function getFeatureInput() {
     await axios.post(ApiUrls.GetFeaturesInput, { index: AppData.randomIndex })
       .then(res => {
-        setFeatureInput(res.data.features);
-        console.log(res.data.features);
+        AppData.setFeatureInput(res.data.features);
       })
       .catch(error => {
         console.log(error);
@@ -21,12 +20,10 @@ const FeatureInput = () => {
   }
 
   useEffect(() => {
-    console.log('--------- getFeatureInput calling ---------');
     getFeatureInput();
-  }, [AppData.randomIndex])
+  }, [AppData.randomIndex]);
 
-
-  const data = [
+  const data = ([
     {
       title: 'Project Description',
       ph: 'Amazon Forest',
@@ -107,7 +104,7 @@ const FeatureInput = () => {
       ph: 'Average',
       key: 'Sector-specific risk'
     },
-  ]
+  ]);
 
   return (
     <Wrapper>
@@ -117,7 +114,7 @@ const FeatureInput = () => {
           data.map((item, index) => (
             <Value key={index}>
               <p>{item.title}</p>
-              <input value={(featureInput !== null ? featureInput[item.key || item.ph] : '')}></input>
+              <input value={AppData.featureInput[item.key]} type='number' onChange={(e) => AppData.setFeatureInput({...AppData.featureInput, [item.key] : AppData.featureInput !== null ? e.target.value : 0})}></input>
             </Value>
           ))
         }

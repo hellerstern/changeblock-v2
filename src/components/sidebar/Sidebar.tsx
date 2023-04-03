@@ -49,7 +49,7 @@ const Sidebar = () => {
       <Container>
         <Logo>
           <img src={ImgLogo}></img>
-          <span>ChangeBlock</span>
+          <span>INSIGHTX</span>
         </Logo>
       </Container>
 

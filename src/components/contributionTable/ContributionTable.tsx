@@ -29,9 +29,29 @@ const ContributionTable = () => {
       .catch(err => console.log(err));
   }
 
+  const getContibSummary1 = async () => {
+    await axios.post(ApiUrls.GetContribSummary, {
+      features: AppData.featureInput
+    })
+      .then(response => {
+        let reason = response.data.data.Reason;
+        let effect = response.data.data.Effect;
+        for (let i = 0; i < reason.length; i++) {
+          reason[i] = reason[i].split('=')[0].trim();
+        }
+        setReason(reason);
+        setEffect(effect);
+      })
+      .catch(err => console.log(err));
+  }
+
   useEffect(() => {
     getContibSummary();
-  }, [AppData.randomIndex])
+  }, [AppData.randomIndex]);
+
+  useEffect(() => {
+    getContibSummary1();
+  }, [AppData.featureInput]);
 
   return (
     <Wrapper>

@@ -32,6 +32,9 @@ const Routers = () => {
   const [data3OfPDF, setData3OfPDF] = useState('');
   const [fileName, setFileName] = useState('');
 
+  const [featureInput, setFeatureInput] = useState<any>({});
+  const [series, setSeries] = useState([0, 0]);
+
   const getRandomIndex = async () => {
     const res = await axios(ApiUrls.GetRandomIndex);
     setRandomIndex(res.data.index);
@@ -53,6 +56,9 @@ const Routers = () => {
       loading1, setLoading1,
       loading2, setLoading2,
       loading3, setLoading3,
+
+      featureInput, setFeatureInput,
+      series, setSeries,
     }}>
       <BrowserRouter>
         <Routes>

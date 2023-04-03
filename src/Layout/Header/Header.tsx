@@ -44,7 +44,7 @@ const Header = (props: inter_header) => {
       <Container>
         <Logo to={'/'}>
           <img src={ImgLogo} alt='logo' />
-          <span>ChangeBlock</span>
+          <span>INSIGHTX</span>
         </Logo>
 
         <HeaderLinks>
