@@ -47,7 +47,7 @@ const Sidebar = () => {
   return (
     <Wrapper>
       <Container>
-        <Logo>
+        <Logo to='/'>
           <img src={ImgLogo}></img>
           <span>INSIGHTX</span>
         </Logo>
@@ -82,12 +82,13 @@ const Wrapper = styled.div`
 const Container = styled.div`
   padding-top: 40px;
 `
-const Logo = styled.div`
+const Logo = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5px;
   margin: auto;
+  text-decoration: none;
 
   font-family: 'Urbanist-Medium';
   font-weight: 700;
@@ -104,10 +105,14 @@ const Logo = styled.div`
 const SidebarDiv = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 70px;
   margin-left: 20px;
   margin-top: 100px;
-  gap: 70px;
-  a {
+  @media screen and (max-width: 1024px) {
+    margin: auto;
+    margin-top: 100px;
+  }
+  a { 
     display: flex;
     align-items: center;
     justify-content: flex-start;
