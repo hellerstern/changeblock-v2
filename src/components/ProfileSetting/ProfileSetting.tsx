@@ -57,11 +57,16 @@ const Wrapper = styled.div`
   padding: 30px 33px;
   margin-top: 30px;
   width: 790px;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
   .group {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 30px;
+
+    flex-wrap: wrap;
   }
   .title {
     font-family: 'Inter-Medium';

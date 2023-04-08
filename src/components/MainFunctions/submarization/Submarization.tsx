@@ -70,12 +70,23 @@ const Container = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 const LeftDiv = styled.div`
   width: 49%;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `
 const RightDiv = styled.div`
   width: 49%;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `
 const DisplayData = styled.div`
   background: #EEEEEE;

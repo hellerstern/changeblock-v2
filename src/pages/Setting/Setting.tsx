@@ -63,7 +63,7 @@ const Wrapper = styled.div`
 `
 const SubScriptionMain = styled.div`
   padding: 5px 20px;
-  width: calc(100vw - 220px);
+  flex: 1;
   min-height: calc(100vh -20px);
   background-color: #f5f5f5;
   display: flex;
@@ -75,6 +75,7 @@ const SettingTop = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  
 `
 const TopbarDiv = styled.div<inter_topbar>`
   display: flex;
@@ -82,6 +83,10 @@ const TopbarDiv = styled.div<inter_topbar>`
   justify-content: flex-start;
   gap: 120px;
   border-bottom: 1.5px solid #D4D5D6;
+
+  @media screen and (max-width: 768px) {
+    gap: 20px;
+  }
   
   p {
     font-family: 'Inter-Medium';
@@ -91,6 +96,9 @@ const TopbarDiv = styled.div<inter_topbar>`
     color: #B8B9BB;
     cursor: pointer;
     padding-bottom: 10px;
+    @media screen and (max-width: 768px) {
+      font-size: 13px;
+    }
   }  
 
   p:nth-child(${p => p.flag}) {

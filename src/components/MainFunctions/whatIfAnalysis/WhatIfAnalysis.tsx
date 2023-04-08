@@ -47,7 +47,7 @@ const WhatIfAnalysis = () => {
       </Graphs>
       <Graphs>
         <ContributionTable />
-        <ExpertAdvice></ExpertAdvice>
+        <ExpertAdvice />
       </Graphs>
       <Summary></Summary>
     </Wrapper>
@@ -70,6 +70,12 @@ const Graphs = styled.div`
   justify-content: space-between;
   align-items: stretch;
   margin: 20px 0;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
 `
 
 export default WhatIfAnalysis;

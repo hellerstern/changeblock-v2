@@ -95,6 +95,10 @@ const Wrapper = styled.div`
   padding: 20px;
   border-radius: 8px;
   width: 60%;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
   .title {
     display: flex;
     align-items: center;

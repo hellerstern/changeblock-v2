@@ -38,6 +38,9 @@ const Wrapper = styled.div`
   padding: 30px 33px;
   margin-top: 30px;
   width: 410px;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
   .title {
     font-family: 'Inter-Medium';
     font-weight: 600;

@@ -1,4 +1,4 @@
-export const baseUrl = 'http://174.138.188.39:8000/api/';
+export const baseUrl = 'http://174.138.188.39:80/api/';
 
 export const ApiUrls = {
   GetRandomIndex: baseUrl + "random-index",

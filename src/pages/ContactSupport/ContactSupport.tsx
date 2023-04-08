@@ -48,13 +48,16 @@ const Wrapper = styled.div`
 `
 const SubScriptionMain = styled.div`
   padding: 5px 20px;
-  width: calc(100vw - 220px);
+  flex: 1;
   min-height: calc(100vh -20px);
   background-color: #f5f5f5;
   display: flex;
   flex-direction: column;
 `
 const MainContainer = styled.div`
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
   .title {
     font-family: 'Inter-Medium';
     font-style: normal;
@@ -80,6 +83,9 @@ const GiveCall = styled.div`
   border-radius: 8px;
   padding: 30px 33px;
   width: 470px;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
   margin-top: 30px;
   div {
     display: flex;
@@ -110,6 +116,9 @@ const LetsChat = styled.div`
   border-radius: 8px;
   padding: 30px 33px;
   width: 470px;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
   margin-top: 30px;
   div {
     display: flex;

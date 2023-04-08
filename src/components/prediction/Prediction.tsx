@@ -130,6 +130,10 @@ const Wrapper = styled.div`
   border-radius: 8px;
   width: 35%;
 
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+
   position: relative;
   .loading {
     position: absolute;

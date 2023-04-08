@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
-import {FaTelegramPlane} from 'react-icons/fa';
+import { FaTelegramPlane } from 'react-icons/fa';
 import axios from "axios";
 
 import {
@@ -18,17 +18,17 @@ const ExpertAdvice = () => {
   const [chatContent, setChatContent] = useState<any>([]);
 
   useEffect(() => {
-      console.log("chatContent", chatContent);
+    console.log("chatContent", chatContent);
   }, [chatContent]);
 
   const chatWithChatGpt = async () => {
-      setChatContent((chatContent: any) => [...chatContent, {me: msg}]);
-      setMsg('');
-      await axios.post('https://chatgpt-analysis.herokuapp.com/expert_analysis', {
-          user_content: msg
-      }).then(res => {
-          setChatContent((chatContent: any) => [...chatContent, {helper: res.data.response}]);
-      }).then(err => console.log(err))
+    setChatContent((chatContent: any) => [...chatContent, { me: msg }]);
+    setMsg('');
+    await axios.post('https://chatgpt-analysis.herokuapp.com/expert_analysis', {
+      user_content: msg
+    }).then(res => {
+      setChatContent((chatContent: any) => [...chatContent, { helper: res.data.response }]);
+    }).then(err => console.log(err))
   }
 
   const expertProfile = {
@@ -67,30 +67,30 @@ const ExpertAdvice = () => {
       </ContactDiv>
       <MsgBox>
         {
-          chatContent.map((item: any, index: any) => 
+          chatContent.map((item: any, index: any) =>
           (
             <>
               {
-                  item.me && (
-                      <p><b>me:</b> {item.me}</p>
-                  )
+                item.me && (
+                  <p><b>me:</b> {item.me}</p>
+                )
               }
               {
-                  item.helper && (
-                      <p><b>insightX:</b> {item.helper}</p>
-                  )
+                item.helper && (
+                  <p><b>insightX:</b> {item.helper}</p>
+                )
               }
-          </>
+            </>
           ))
         }
       </MsgBox>
       <MsgInput>
         <input ref={inputRef} onKeyDown={(e) => {
-                        if (e.code !== 'Enter') return;
-                        chatWithChatGpt();
-                    }} 
-                    value={msg}
-                    onChange={(e) => setMsg(e.target.value)}></input>
+          if (e.code !== 'Enter') return;
+          chatWithChatGpt();
+        }}
+          value={msg}
+          onChange={(e) => setMsg(e.target.value)}></input>
         <FaTelegramPlane onClick={() => chatWithChatGpt()}></FaTelegramPlane>
       </MsgInput>
 
@@ -106,6 +106,10 @@ const Wrapper = styled.div`
   padding: 20px;
   border-radius: 8px;
   width: 39%;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
   .title {
     display: flex;
     align-items: center;

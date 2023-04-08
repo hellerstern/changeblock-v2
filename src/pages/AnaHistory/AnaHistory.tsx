@@ -76,7 +76,7 @@ const Wrapper = styled.div`
 `
 const SubScriptionMain = styled.div`
   padding: 5px 20px;
-  width: calc(100vw - 220px);
+  flex: 1;
   min-height: calc(100vh -20px);
   background-color: #f5f5f5;
   display: flex;
@@ -87,6 +87,9 @@ const MainContainer = styled.div`
   background: #FFFFFF;
   border-radius: 8px;
   padding: 25px 33px;
+  @media screen and (max-width: 768px) {
+    padding: 25px 10px;
+  }
   margin-top: 20px;
   .title {
     font-family: 'Inter-Medium';
@@ -109,6 +112,10 @@ const MainContainer = styled.div`
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
+
+    @media screen and (max-width: 768px) {
+      font-size: 15px;
+    }
     line-height: 24px;
     color: ${p => p.theme.fontColor2};
     padding: 10px 0;
@@ -127,6 +134,9 @@ const MainContainer = styled.div`
     line-height: 19px;
     padding: 10px 0;
     color: ${p => p.theme.fontColor2};
+    @media screen and (max-width: 768px) {
+      font-size: 12px;
+    }
   }
 `
 const Button = styled.button`
@@ -136,5 +146,9 @@ const Button = styled.button`
   justify-content: center;
   gap: 20px;
   color: ${p => p.theme.themeColor} !important;
+  @media screen and (max-width: 768px) {
+    gap: 10px;
+    padding: 10px;
+  }
 `
 export default AnaHistory;

@@ -70,6 +70,10 @@ const Wrapper = styled.div`
   width: 660px;
   margin-top: 30px;
 
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+
   .title {
     font-family: 'Inter-Medium';
     font-weight: 600;

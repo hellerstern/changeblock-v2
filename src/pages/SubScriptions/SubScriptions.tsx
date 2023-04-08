@@ -140,7 +140,7 @@ const Wrapper = styled.div`
 
 const SubScriptionMain = styled.div`
   padding: 5px;
-  width: calc(100vw - 220px);
+  flex: 1;
   min-height: calc(100vh -20px);
   background-color: #f5f5f5;
   display: flex;
@@ -159,6 +159,9 @@ const CurrentPlan = styled.div`
   background: #FFFFFF;
   border-radius: 8px;
   padding: 25px 33px;
+  @media screen and (max-width: 882px) {
+    width: 100%;
+  }
   .header {
     display: flex;
     align-items: center;
@@ -231,11 +234,20 @@ const StyledDiv1 = styled.div`
   display: flex;
   align-items: stretch;
   justify-content: space-between;
+
+  @media screen and (max-width: 882px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
 `
 const PaymentMethods = styled.div`
   padding: 25px 33px;
   background: #FFFFFF;
   border-radius: 8px;
+  @media screen and (max-width: 882px) {
+    width: 100%;
+  }
   .title {
     font-family: 'Inter-Medium';
     font-weight: 600;
@@ -291,11 +303,18 @@ const SubScriptionHistory = styled.div`
   border-radius: 8px;
   padding: 25px 33px;
   margin-top: 20px;
+
+  
   table {
     margin-top: 20px;
     width: 100%;
     tr:nth-child(1) {
       border-bottom: 1px solid red;
+    }
+    @media screen and (max-width: 882px) {
+      * {
+        font-size: 10px !important; 
+      }
     }
   }
   th {

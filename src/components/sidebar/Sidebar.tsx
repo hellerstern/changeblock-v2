@@ -77,6 +77,9 @@ const Wrapper = styled.div`
   @media screen and (max-width: 1024px) {
     width: 70px;
   }
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
   ${customStyle}
 `
 const Container = styled.div`

@@ -64,7 +64,11 @@ const TopbarDiv = styled.div<inter_topbar>`
   align-items: center;
   justify-content: space-between;
   border-bottom: 1.5px solid #D4D5D6;
-  
+  @media screen and (max-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 30px;
+  }
   p {
     font-family: 'Inter-Medium';
     font-weight: 500;
@@ -73,7 +77,18 @@ const TopbarDiv = styled.div<inter_topbar>`
     color: #B8B9BB;
     cursor: pointer;
     padding-bottom: 10px;
-  }  
+    white-space: nowrap;
+
+    @media screen and (max-width: 768px) {
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 24px;
+      gap: 10px;
+      text-align: center;
+    }
+  }
+
+  overflow-x: scroll;
 
   p:nth-child(${p => p.flag}) {
     color: ${p => p.theme.themeColor};
